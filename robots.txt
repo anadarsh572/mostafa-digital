@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anadarsh572.github.io/mostafa-digital/sitemap.xml
