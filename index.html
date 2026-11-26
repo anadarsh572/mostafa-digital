@@ -223,8 +223,9 @@ let THREE = null;
 try { THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js'); } catch (e) { THREE = null; }
 
 /* ====== CONTENT (edit here: contact links, photos, services) ====== */
+const WA = 'https://wa.me/201021078327?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20Mostafa%20Digital%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%B7%D9%84%D8%A8%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D9%88%D8%A7%D9%84%D8%B3%D8%B9%D8%B1';
 const CONTACT = [
-  /* { label: 'واتساب', href: 'https://wa.me/20XXXXXXXXXX' }, { label: 'تليجرام', href: 'https://t.me/USERNAME' } */
+  { label: 'كلمنا على واتساب', href: WA },
 ];
 const SERVICES = [
   { ic: '📣', t: 'إعلانات ممولة', d: 'حملات على ميتا وتيك توك وجوجل بميزانية محسوبة وتتبع لكل جنيه، من الاستراتيجية للتقرير.', tags: ['Meta', 'TikTok', 'Google Ads'] },
@@ -269,7 +270,8 @@ $('#aboutText').textContent = ABOUT;
 $('#facts').innerHTML = FACTS.map(f => `<li><b>${f[0]}:</b> ${f[1]}</li>`).join('');
 $('#skills').innerHTML = SKILLS.map(s => `<div class="bar"><div><span>${s[0]}</span><span>${s[1]}%</span></div><i><b data-w="${s[1]}"></b></i></div>`).join('');
 $('#timeline').innerHTML = TIMELINE.map(t => `<li class="reveal"><small>${t[0]}</small><h4>${t[1]}</h4><p>${t[2]}</p></li>`).join('');
-$('#contactLinks').innerHTML = !CONTACT.length ? '<p class="lead">وسائل التواصل هتتضاف هنا قريباً.</p>' : CONTACT.map((c, i) => `<a class="btn ${i ? 'ghost' : ''}" href="${c.href}" target="_blank" rel="noopener">${c.label}</a>`).join('');
+$('#contactLinks').innerHTML = CONTACT.map((c, i) => `<a class="btn ${i ? 'ghost' : ''}" href="${c.href}" target="_blank" rel="noopener">${c.label}</a>`).join('');
+document.querySelectorAll('[data-cta]').forEach(a => { a.href = WA; a.target = '_blank'; a.rel = 'noopener'; });
 $('#yr').textContent = new Date().getFullYear();
 
 /* ====== reveal + skill bars ====== */
